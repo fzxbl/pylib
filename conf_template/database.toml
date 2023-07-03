@@ -6,3 +6,6 @@ DBName = "database"
 TimeZone = "Asia/Shanghai"
 Charset = "utf8"
 ParseTime = true
+PoolSize = 5 
+PoolRecycle = 3600 #3600s回收连接并重建
+PoolTimeout = 10 #拿不到空闲连接时至多等待10s
