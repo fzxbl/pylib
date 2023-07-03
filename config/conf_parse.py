@@ -1,10 +1,6 @@
 import toml
-import sys,os
+import os
 from types import *
-
-# 确保脚本可以直接执行
-root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(root_dir)
 
 from env import CONF_DIR
 

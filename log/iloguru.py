@@ -1,7 +1,5 @@
 import loguru
-import os,sys,json5,json
-_root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(_root_dir)
+import os,sys,json5
 
 from env import LOG_DIR, CONF_DIR
 
@@ -13,12 +11,10 @@ def _serialize(record):
         "pos":record["file"].path + ":" + str(record["line"]),
         "func":record["function"],
     }
-    return json.dumps(subset)
+    return json5.dumps(subset)
 
 def _patching(record):
     record["extra"]["serialized"] = _serialize(record)
-
-
 
 
 def init_logger_by_conf(conf_name:str) -> loguru.logger:
@@ -43,10 +39,8 @@ def init_logger_by_conf(conf_name:str) -> loguru.logger:
     return logger
 
 
-
-
 if __name__ == "__main__":
-    logger = init_logger_by_conf('stock_logger2.json')
+    logger = init_logger_by_conf('loguru_logger.json')
     a = 5
     b = 0
     try:

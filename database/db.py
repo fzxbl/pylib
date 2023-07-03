@@ -1,11 +1,7 @@
 
 import sqlalchemy
-import os,sys
-
-_root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(_root_dir)
-
 from config import conf_parse
+
 def init_mysql_by_conf(conf_file:str) -> sqlalchemy.engine.Engine:
     """
     初始化数据库连接
@@ -18,4 +14,4 @@ def init_mysql_by_conf(conf_file:str) -> sqlalchemy.engine.Engine:
     return engine
 
 if __name__ =='__main__':
-    engine = init_mysql_by_conf('stock_db.toml')
+    engine = init_mysql_by_conf('database.toml')

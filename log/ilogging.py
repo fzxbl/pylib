@@ -1,8 +1,6 @@
 import logging.config
-import os,json5,sys
+import os,json5
 
-_root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(_root_dir)
 from env import LOG_DIR, CONF_DIR
 
 if not os.path.exists(LOG_DIR):
@@ -25,6 +23,6 @@ def init_looger_by_conf(conf_name:str, logger_name:str) -> any:
     return logger
 
 if __name__ == '__main__':
-    logger1 = init_looger_by_conf('logger.json', 'base')
+    logger1 = init_looger_by_conf('ilogging_logger.json', 'base')
     logger1.info("asdf")
    
